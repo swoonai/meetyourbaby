@@ -82,7 +82,7 @@ function init(bundle, parent, options = {}) {
 
   // Creating a Video Player
   const player = r360.compositor.createVideoPlayer('myplayer');
-  player.setSource(`https://videos.meetyourbaby.com/${id}/meetyourbaby_360_video.mp4`, '2D', 'mp4');
+  player.setSource(id, '2D', 'mp4');
   player.setMuted(false);
   player.setVolume(1);
   // player.play({autoPlay: true});
