@@ -4,6 +4,7 @@
 import {ReactInstance} from 'react-360-web';
 
 function init(bundle, parent, options = {}) {
+  console.dir(this.props);
 
   const r360 = new ReactInstance(bundle, parent, {
     // Add custom options here

@@ -2,10 +2,10 @@ import React from 'react';
 import {
   AppRegistry,
   StyleSheet,
-  Text,
   View,
-    VrButton,
-    Environment
+    Environment,
+    Text,
+    VrButton
 } from 'react-360';
 import { NativeModules } from "react-360";
 const {VideoModule} = NativeModules;
@@ -13,10 +13,40 @@ const {VideoModule} = NativeModules;
 
 
 export default class vr extends React.Component {
+  constructor(){
+    super();
+
+    this.state = {
+      displayBtn: 'flex'
+    }
+
+    this.playVideo = this.playVideo.bind(this)
+  }
+
+  componentDidMount(): void {
+    console.log("MOUNTED");
+
+  }
+
+  playVideo(){
+    VideoModule.resume('myplayer');
+    this.setState({
+      displayBtn: 'none'
+    })
+  }
+
   render() {
     Environment.setBackgroundVideo('myplayer');
+    console.log("See this?");
+    console.dir(this.state);
+
     return (
-      <View style={styles.panel} onEnter={VideoModule.resume('myplayer')}>
+      <View style={styles.panel}>
+        <VrButton onClick={this.playVideo} style={{display: this.state.displayBtn}}>
+          <Text style={{color: "#fff"}}>
+            PLAY
+          </Text>
+        </VrButton>
       </View>
     );
   }
