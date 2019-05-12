@@ -18,13 +18,15 @@ export default class vr extends React.Component {
 
     this.state = {
       displayBtn: 'flex'
-    }
+    };
 
     this.playVideo = this.playVideo.bind(this)
   }
 
   componentDidMount(): void {
     console.log("MOUNTED");
+    console.dir(window.location)
+
 
   }
 
@@ -36,10 +38,8 @@ export default class vr extends React.Component {
   }
 
   render() {
+    console.dir(window.location)
     Environment.setBackgroundVideo('myplayer');
-    console.log("See this?");
-    console.dir(this.state);
-
     return (
       <View style={styles.panel}>
         <VrButton onClick={this.playVideo} style={{display: this.state.displayBtn}}>
