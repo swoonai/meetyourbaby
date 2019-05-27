@@ -1,7 +1,7 @@
 // This file contains the boilerplate to execute your React app.
 // If you want to modify your application's content, start in "index.js"
 
-import {ReactInstance} from 'react-360-web';
+import {ReactInstance, Surface} from 'react-360-web';
 
 function init(bundle, parent, options = {}) {
 
@@ -85,17 +85,20 @@ function init(bundle, parent, options = {}) {
   player.setSource(id, '2D', 'mp4');
   player.setMuted(false);
   player.setVolume(1);
-  // player.play({autoPlay: true});
+  player.play({autoPlay: true});
   // player.resume();
 
-
-
-
+  const sphereSurface = new Surface(
+    1000,
+    500,
+    Surface.SurfaceShape.Flat,
+  );
+  sphereSurface.setAngle(0, 0);
 
   // Render your app content to the default cylinder surface
   r360.renderToSurface(
     r360.createRoot('vr', { /* initial props */ }),
-    r360.getDefaultSurface()
+    sphereSurface
   );
 
 
