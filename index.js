@@ -65,6 +65,7 @@ export default class vr extends React.Component {
           </VrButton>
           <View style={{width: "40%", height: "10%", backgroundColor: "#ffffff"}} />
           <Image style={{ marginLeft: 10, width: 150, height: 30}} source={require('./static_assets/logo.png')} />
+          <Image style={{ marginLeft: 10, width: 30, height: 30}} source={require('./static_assets/fullscreen.png')} />
           <View style={{width: "1%"}} />
         </View>
       </View>
