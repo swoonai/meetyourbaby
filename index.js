@@ -4,7 +4,8 @@ import {
   View,
   Environment,
   Text,
-  VrButton
+  VrButton,
+  Image
 } from 'react-360';
 
 import { NativeModules } from "react-360";
@@ -56,13 +57,9 @@ export default class vr extends React.Component {
         <View style={{marginTop: 800, marginRight: 50, zwidth: "100%", height: "4%", flexDirection: 'row', justifyContent: "center", alignItems: "center", backgroundColor: "#777777", borderRadius: 5}}> 
           <VrButton onClick={this.playVideo} style={{margin: 10}}>
             { this.state.flag ? (
-                <Text style={{color: "#fff"}}>
-                  PLAY
-                </Text>
+                <Image style={{width: 30, height: 30}} source={require('./static_assets/play.png')} />
               ) : (
-                <Text style={{color: "#fff"}}>
-                  Pause
-                </Text>
+                <Image style={{width: 30, height: 30}} source={require('./static_assets/pause.png')} />
               )
             }
           </VrButton>
