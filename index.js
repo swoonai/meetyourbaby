@@ -19,7 +19,9 @@ export default class vr extends React.Component {
     super();
 
     this.state = {
-      displayBtn: 'flex'
+      displayBtn: 'flex',
+      flag: true,
+
     };
   }
 
@@ -31,10 +33,17 @@ export default class vr extends React.Component {
   }
 
   playVideo = () => {
-    VideoModule.resume('myplayer');
-    this.setState({
-      displayBtn: 'none'
-    })
+    if (this.state.flag) {
+      VideoModule.resume('myplayer');
+      this.setState(
+        {flag: false,}
+      )
+    } else {
+      VideoModule.pause('myplayer');
+      this.setState(
+        {flag: true,}
+      )
+    }
   }
 
   render() {
@@ -43,28 +52,26 @@ export default class vr extends React.Component {
     Environment.setBackgroundVideo('myplayer');
     return (
       <View style={styles.panel}>
-        <VrButton onClick={this.playVideo} style={{margin: 10}}>
-          <Text style={{color: "#fff"}}>
-            PLAY
-          </Text>
-        </VrButton>
-        <VideoControl style={{marginTop: 600, zwidth: "100%", height: "6%"}} />
+        
+        <View style={{marginTop: 800, marginRight: 50, zwidth: "100%", height: "4%", flexDirection: 'row', justifyContent: "center", alignItems: "center", backgroundColor: "#777777", borderRadius: 5}}> 
+          <VrButton onClick={this.playVideo} style={{margin: 10}}>
+            { this.state.flag ? (
+                <Text style={{color: "#fff"}}>
+                  PLAY
+                </Text>
+              ) : (
+                <Text style={{color: "#fff"}}>
+                  Pause
+                </Text>
+              )
+            }
+          </VrButton>
+          <View style={{width: "40%", height: "10%", backgroundColor: "#ffffff"}} />
+          <View style={{width: "1%"}} />
+        </View>
       </View>
     );
-    // return (
-    //   <View style={{flex: 1}}>
-    //     <VideoPlayer
-    //       muted={true}
-    //       source={{url: "https://videos.meetyourbaby.com/1091910893632/meetyourbaby_360_video.mp4"}}
-    //       stereo={'2D'}
-    //       style={{
-    //         width: 600,
-    //         height: 400,
-    //       }}
-    //     />
-
-    //   </View>
-    // );
+    
   }
 };
 
