@@ -54,8 +54,8 @@ export default class vr extends React.Component {
     return (
       <View style={styles.panel}>
         
-        <View style={{marginTop: 800, marginRight: 50, zwidth: "100%", height: "4%", flexDirection: 'row', justifyContent: "center", alignItems: "center", backgroundColor: "#777777", borderRadius: 5}}> 
-          <VrButton onClick={this.playVideo} style={{margin: 10}}>
+        <View style={{marginTop: "65%",height: "4%", flexDirection: 'row', justifyContent: "center", alignItems: "center", backgroundColor: "#777777", borderRadius: 5}}> 
+          <VrButton onClick={this.playVideo} style={{margin: "1%"}}>
             { this.state.flag ? (
                 <Image style={{width: 30, height: 30}} source={require('./static_assets/play.png')} />
               ) : (
@@ -63,7 +63,7 @@ export default class vr extends React.Component {
               )
             }
           </VrButton>
-          <View style={{width: "40%", height: "10%", backgroundColor: "#ffffff"}} />
+          <View style={{width: "30%", height: "10%", backgroundColor: "#ffffff"}} />
           <Image style={{ marginLeft: 10, width: 150, height: 30}} source={require('./static_assets/logo.png')} />
           <Image style={{ marginLeft: 10, width: 30, height: 30}} source={require('./static_assets/fullscreen.png')} />
           <View style={{width: "1%"}} />
