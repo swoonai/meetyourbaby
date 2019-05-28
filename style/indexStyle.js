@@ -5,8 +5,8 @@ import {
 const styles = StyleSheet.create({
     panel: {
       // Fill the entire surface
-      width: 1000,
-      height: 600,
+      width: 1170,
+      height: 960,
       backgroundColor: 'rgba(255, 255, 255, 0)',
       justifyContent: 'center',
       alignItems: 'center',
