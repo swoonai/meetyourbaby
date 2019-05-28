@@ -87,13 +87,17 @@ function init(bundle, parent, options = {}) {
   player.setVolume(1);
   player.play({autoPlay: true});
   // player.resume();
+  
 
   const sphereSurface = new Surface(
-    1000,
-    500,
+    1170,
+    960,
     Surface.SurfaceShape.Flat,
   );
   sphereSurface.setAngle(0, 0);
+
+  const cameraQuat = r360.getCameraQuaternion();
+  sphereSurface.recenter(cameraQuat, 'all');
 
   // Render your app content to the default cylinder surface
   r360.renderToSurface(
