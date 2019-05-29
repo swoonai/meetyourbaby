@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     greeting: {
       fontSize: 30,
     },
+   
   });
 
   export default styles;
