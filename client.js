@@ -90,8 +90,8 @@ function init(bundle, parent, options = {}) {
   
 
   const sphereSurface = new Surface(
-    1170,
-    960,
+    800,
+    600,
     Surface.SurfaceShape.Flat,
   );
   sphereSurface.setAngle(0, 0);

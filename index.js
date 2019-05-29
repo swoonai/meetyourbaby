@@ -17,7 +17,6 @@ import { VideoPlayer, VideoControl} from './src/react-360-common-ui'
 
 const {VideoModule} = NativeModules;
 
-
 export default class vr extends React.Component {
   constructor(props) {
     super(props);
@@ -44,14 +43,13 @@ export default class vr extends React.Component {
   }
 
   render() {
-    console.dir(window.location)
     console.log("window: ", window)
     console.log(Dimensions.get('screen').width);
     Environment.setBackgroundVideo('myplayer');
     return (
       <View style={styles.panel}>
         
-        <View style={{marginTop: "65%", height: "4%", flexDirection: 'row', justifyContent: "center", alignItems: "center", backgroundColor: "#777777", borderRadius: 5}}> 
+        <View style={{position: "absolute", left: 270, top: 550, height: 40, flexDirection: 'row', justifyContent: "center", alignItems: "center", backgroundColor: "#777777", borderRadius: 5}}> 
           <VrButton onClick={this.playVideo} style={{margin: "1%"}}>
             { this.state.flag ? (
                 <Image style={{width: 30, height: 30}} source={require('./static_assets/play.png')} />
